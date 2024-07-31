@@ -5,8 +5,8 @@
 #include <filesystem>
 #include <fstream>
 #include <memory>
-#include <queue>
 #include <string>
+#include <vector>
 class Tokenizer {
 public:
     Tokenizer (std::filesystem::path, std::shared_ptr<HackMap>);
@@ -21,13 +21,15 @@ public:
     int int_val ();
 
 private:
+    void tokenize ();
     void trim_codeline (std::string&);
     void process_word (const std::string&);
     void process_value (const std::string&, bool is_string = false);
 
 private:
-    std::queue<token> tokens_queue;
+    std::vector<token> tokens_vec;
     std::ifstream inp_file;
     bool in_comment_block, in_string;
     std::shared_ptr<HackMap> hack_map;
+    int current = -1;
 };
