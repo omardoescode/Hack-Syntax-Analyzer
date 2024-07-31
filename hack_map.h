@@ -6,6 +6,7 @@
 class HackMap {
 public:
     std::string get_keyword (Keyword);
+    Keyword get_keyword (const std::string&);
     std::string get_token (TokenType);
     bool contains_keyword (std::string);
     bool contains_symbol (char);

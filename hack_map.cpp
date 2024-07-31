@@ -1,4 +1,5 @@
 #include "hack_map.h"
+#include "error.h"
 
 
 std::string HackMap::get_keyword (Keyword value) {
@@ -7,6 +8,12 @@ std::string HackMap::get_keyword (Keyword value) {
 
 std::string HackMap::get_token (TokenType value) {
     return tokens[value];
+}
+Keyword HackMap::get_keyword (const std::string& target) {
+    for (auto& [key, value] : keywords)
+        if (value == target)
+            return key;
+    throw Error ("HackMap::get_keyword: Keyword not found");
 }
 bool HackMap::contains_keyword (std::string target) {
     for (auto& [key, value] : keywords)

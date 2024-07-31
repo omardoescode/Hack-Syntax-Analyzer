@@ -107,3 +107,42 @@ void Tokenizer::process_value (const std::string& value, bool is_string) {
     else
         tokens_vec.push_back ({ value, TokenType::IDENTIFIER });
 }
+
+void Tokenizer::check_current_token (TokenType match, std::string error_msg) {
+
+    if (tokens_vec[current].type != match)
+        throw Error (error_msg);
+}
+TokenType Tokenizer::token_type () {
+    if (current < 0)
+        throw Error ("Tokenizer::token_type: No current token");
+    return tokens_vec[current].type;
+}
+
+Keyword Tokenizer::keyword () {
+    check_current_token (TokenType::KEYWORD,
+    "Tokenizer::check_current_token: Next token isn't a "
+    "keyword");
+
+    return hack_map->get_keyword (tokens_vec[current].value);
+}
+
+int Tokenizer::int_const () {
+    check_current_token (TokenType::INT_CONST,
+    "Tokenizer::int_const: Next token isn't an int constant");
+    return std::stoi (tokens_vec[current].value);
+}
+
+std::string Tokenizer::string_const () {
+    check_current_token (TokenType::STRING_CONSTANT,
+    "Tokenizer::string_const: Next token isn't a string constant");
+
+    return tokens_vec[current].value;
+}
+
+std::string Tokenizer::identifier () {
+    check_current_token (TokenType::IDENTIFIER,
+    "Tokenizer::string_const: Next token isn't an identifier");
+
+    return tokens_vec[current].value;
+}

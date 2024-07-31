@@ -15,16 +15,17 @@ public:
     token advance ();
     TokenType token_type ();
     Keyword keyword ();
-    char symbol ();
+    int int_const ();
+    std::string string_const ();
     std::string identifier ();
-    std::string string_val ();
-    int int_val ();
+    char symbol ();
 
 private:
     void tokenize ();
     void trim_codeline (std::string&);
     void process_word (const std::string&);
     void process_value (const std::string&, bool is_string = false);
+    void check_current_token (TokenType, std::string);
 
 private:
     std::vector<token> tokens_vec;
