@@ -5,6 +5,9 @@ std::string HackMap::get_keyword (Keyword value) {
     return keywords[value];
 }
 
+std::string HackMap::get_token (TokenType value) {
+    return tokens[value];
+}
 bool HackMap::contains_keyword (std::string target) {
     for (auto& [key, value] : keywords)
         if (value == target)
@@ -24,22 +27,30 @@ std::map<Keyword, std::string> HackMap::keywords = {
     { Keyword::METHOD, "method" },
     { Keyword::CONSTRUCTOR, "constructor" },
     { Keyword::INT, "int" },
-    { Keyword::BOOL, "BOOL" },
-    { Keyword::CHAR, "CHAR" },
-    { Keyword::VOID, "VOID" },
-    { Keyword::VAR, "VAR" },
-    { Keyword::STATIC, "STATIC" },
-    { Keyword::FIELD, "FIELD" },
-    { Keyword::LET, "LET" },
-    { Keyword::DO, "DO" },
-    { Keyword::IF, "IF" },
-    { Keyword::ELSE, "ELSE" },
-    { Keyword::WHILE, "WHILE" },
-    { Keyword::RETURN, "RETURN" },
-    { Keyword::TRUE, "TRUE" },
-    { Keyword::FALSE, "FALSE" },
+    { Keyword::BOOL, "bool" },
+    { Keyword::CHAR, "char" },
+    { Keyword::VOID, "void" },
+    { Keyword::VAR, "var" },
+    { Keyword::STATIC, "static" },
+    { Keyword::FIELD, "field" },
+    { Keyword::LET, "let" },
+    { Keyword::DO, "do" },
+    { Keyword::IF, "if" },
+    { Keyword::ELSE, "else" },
+    { Keyword::WHILE, "while" },
+    { Keyword::RETURN, "return" },
+    { Keyword::TRUE, "true" },
+    { Keyword::FALSE, "false" },
     { Keyword::THIS, "this" },
     { Keyword::NULL_keyword, "null" },
+};
+
+std::map<TokenType, std::string> HackMap::tokens = {
+    { TokenType::SYMBOL, "symbol" },
+    { TokenType::IDENTIFIER, "identifier" },
+    { TokenType::KEYWORD, "keyword" },
+    { TokenType::INT_CONST, "int constant" },
+    { TokenType::STRING_CONSTANT, "string constant" },
 };
 
 std::vector<char> HackMap::symbols = { '(', ')', '{', '}', '[', ']', '.', ',',
