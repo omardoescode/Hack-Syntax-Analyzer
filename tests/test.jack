@@ -3,7 +3,8 @@ class Main {
   /* function */
   function void main() {
     do Output.printString("Hello World");
-    do Output.println(""); // new line
+    do Output.println(); // new line
     return;
   }
 }
+
