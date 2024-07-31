@@ -26,7 +26,7 @@ void Tokenizer::tokenize () {
     std::string current_line;
     while (std::getline (inp_file, current_line)) {
         if (inp_file.bad ())
-            throw Error ("Parser::readFile: Error reading file");
+            throw Error ("Tokenizer::tokenize: Error reading input file");
 
         trim_codeline (current_line);
 

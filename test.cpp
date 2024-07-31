@@ -6,21 +6,24 @@
 
 bool test_hack_map ();
 bool test_tokenizer ();
-void test (bool (*func) (), std::string);
+bool test (bool (*func) (), std::string);
+
 int main () {
-    test (test_hack_map, std::string ("Testing HackMap"));
+    return test (test_hack_map, std::string ("Testing HackMap")) &&
     test (test_tokenizer, std::string ("Testing Tokenizer"));
 }
 
-void test (bool (*func) (), std::string test_name) {
-    if (func ())
+bool test (bool (*func) (), std::string test_name) {
+    if (func ()) {
         std::cout << "-- " << test_name << " Succeced" << std::endl;
-    else
-        std::cout << "-- " << test_name << " Failed" << std::endl;
+        return true;
+    }
+    std::cout << "-- " << test_name << " Failed" << std::endl;
+    return false;
 }
 bool test_hack_map () {
     HackMap hack_map;
-    return hack_map.contains_keyword ("class");
+    return hack_map.contains_keyword ("class") && hack_map.contains_symbol ('*');
 }
 bool test_tokenizer () {
     std::shared_ptr<HackMap> hack_map;
