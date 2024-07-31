@@ -53,5 +53,5 @@ std::map<TokenType, std::string> HackMap::tokens = {
     { TokenType::STRING_CONSTANT, "string constant" },
 };
 
-std::vector<char> HackMap::symbols = { '(', ')', '{', '}', '[', ']', '.', ',',
-    ';', '+', '-', '*', '/', '&', '|', '<', '>', '=', '~' };
+std::vector<char> HackMap::symbols = { '(', ')', '{', '}', '[', ']', ',', ';',
+    '+', '-', '*', '/', '&', '|', '<', '>', '=', '~' };

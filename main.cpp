@@ -10,7 +10,7 @@ int main (int argc, char* argv[]) {
     std::filesystem::path inp = argv[1];
     if (!std::filesystem::exists (inp)) {
         std::cout << "Invalid file path" << std::endl;
-        return 0;
+        return 1;
     }
 
     std::string out = std::filesystem::is_directory (inp) ?

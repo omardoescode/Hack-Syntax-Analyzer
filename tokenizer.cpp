@@ -56,6 +56,7 @@ void Tokenizer::process_word (const std::string& word) {
     for (int i = 0, __end = word.length (); i < __end; i++) {
         auto& c = word[i];
 
+        // handle strings
         if (!in_comment_block && in_string) {
             if (c == '"') {
                 process_value (token, true);
@@ -68,17 +69,23 @@ void Tokenizer::process_word (const std::string& word) {
                 process_value (token);
             token     = "";
             in_string = true;
+            // handle comments
         } else if (in_comment_block) {
-            if (word.substr (i, 2) == "*/")
-                i++, in_comment_block = false;
+            if (word.substr (i, 2) == "*/") {
+                i++;
+                in_comment_block = false;
+            }
         } else if (word.substr (i, 2) == "/*") {
-            i++, in_comment_block = true;
+            i++;
+            in_comment_block = true;
+            // handle standalone symbols
         } else if (hack_map->contains_symbol (c)) {
             if (!token.empty ())
                 process_value (token);
             token = "";
             std::string value (1, c);
             process_value (value);
+            // otherwise, keep adding to the token
         } else {
             token += c;
         }
