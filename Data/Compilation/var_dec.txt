@@ -1,3 +1,0 @@
-var
-__var_dec_no_kind
-;

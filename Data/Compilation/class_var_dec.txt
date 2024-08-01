@@ -1,3 +1,0 @@
-static|field
-__var_dec_no_kind
-;
