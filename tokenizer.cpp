@@ -17,11 +17,14 @@ bool Tokenizer::has_more_tokens () {
     return (current + 1) < tokens_vec.size ();
 }
 
-token Tokenizer::advance () {
+Token Tokenizer::advance () {
     current++;
     return tokens_vec[current];
 }
 
+Token Tokenizer::next () {
+    return tokens_vec[1 + current];
+}
 void Tokenizer::tokenize () {
     std::string current_line;
     while (std::getline (inp_file, current_line)) {
