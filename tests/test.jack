@@ -1,10 +1,11 @@
 /** api comment */
 class Main {
-  /* function */
-  function void main() {
-    do Output.printString("Hello World");
-    do Output.println(); // new line
-    return;
+  static int omar, boolean fatma;
+  field char nada, Main yomna;
+
+  function void Main() {
+    var fatma, omar;
+    var nada, yomna;
   }
 }
 
