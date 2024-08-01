@@ -1,7 +1,7 @@
 #pragma once
 #include "enums.h"
 #include <string>
-struct token {
+struct Token {
     std::string value;
     TokenType type;
 };
