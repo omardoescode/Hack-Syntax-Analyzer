@@ -11,10 +11,7 @@ int tab_width)
 }
 
 void XMLOutputEngine::write_spaces () {
-    int temp;
-    while (temp--) {
-        out_file << " ";
-    }
+    out_file << std::string (" ", spaces);
 }
 
 void XMLOutputEngine::write_terminal (const TokenType& token, const std::string& value) {
