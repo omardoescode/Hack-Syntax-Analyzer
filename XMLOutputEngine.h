@@ -3,6 +3,7 @@
 #include "OutputEngine.h"
 #include "hack_map.h"
 #include <memory>
+
 class XMLOutputEngine : public OutputEngine {
 public:
     XMLOutputEngine (const std::string&, std::shared_ptr<HackMap>, int tab_width = 2);

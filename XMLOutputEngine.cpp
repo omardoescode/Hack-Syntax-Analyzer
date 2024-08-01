@@ -11,14 +11,16 @@ int tab_width)
 }
 
 void XMLOutputEngine::write_spaces () {
-    out_file << std::string (" ", spaces);
+    int temp = spaces;
+    while (temp--)
+        out_file << " ";
 }
 
 void XMLOutputEngine::write_terminal (const TokenType& token, const std::string& value) {
     write_spaces ();
 
     const std::string& tag = hack_map->get_token (token);
-    out_file << "<" << tag << ">" << value << "</" << tag << ">";
+    out_file << "<" << tag << ">" << value << "</" << tag << ">\n";
 }
 
 void XMLOutputEngine::write_keyword (const std::string& keyword) {
@@ -52,4 +54,5 @@ void XMLOutputEngine::close_non_terminal () {
     spaces -= tab_width;
     write_spaces ();
     out_file << "</" << tag << ">\n";
+    tags.pop ();
 }
