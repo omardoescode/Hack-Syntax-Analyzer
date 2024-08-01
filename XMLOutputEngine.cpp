@@ -1,5 +1,6 @@
 #include "XMLOutputEngine.h"
 #include "OutputEngine.h"
+#include "enums.h"
 #include "error.h"
 #include "hack_map.h"
 #include <memory>
@@ -16,29 +17,13 @@ void XMLOutputEngine::write_spaces () {
         out_file << " ";
 }
 
-void XMLOutputEngine::write_terminal (const TokenType& token, const std::string& value) {
+void XMLOutputEngine::write_terminal (Token token) {
     write_spaces ();
 
-    const std::string& tag = hack_map->get_token (token);
-    out_file << "<" << tag << ">" << value << "</" << tag << ">\n";
+    const std::string& tag = hack_map->get_token (token.type);
+    out_file << "<" << tag << ">" << token.value << "</" << tag << ">\n";
 }
 
-void XMLOutputEngine::write_keyword (const std::string& keyword) {
-    write_terminal (TokenType::KEYWORD, keyword);
-}
-
-void XMLOutputEngine::write_identifier (const std::string& identifier) {
-    write_terminal (TokenType::IDENTIFIER, identifier);
-}
-void XMLOutputEngine::write_int_const (const std::string& int_const) {
-    write_terminal (TokenType::INT_CONST, int_const);
-}
-void XMLOutputEngine::write_symbol (const std::string& symbol) {
-    write_terminal (TokenType::SYMBOL, symbol);
-}
-void XMLOutputEngine::write_string_const (const std::string& string_const) {
-    write_terminal (TokenType::STRING_CONSTANT, string_const);
-}
 void XMLOutputEngine::write_non_terminal (const std::string& tag) {
     tags.push (tag);
     write_spaces ();
@@ -51,8 +36,9 @@ void XMLOutputEngine::close_non_terminal () {
         throw Error ("Invalid Tags matching");
 
     auto tag = tags.top ();
+    tags.pop ();
+
     spaces -= tab_width;
     write_spaces ();
     out_file << "</" << tag << ">\n";
-    tags.pop ();
 }

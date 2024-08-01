@@ -2,16 +2,14 @@
 
 #include "OutputEngine.h"
 #include "hack_map.h"
-#include "token.h"
 #include "tokenizer.h"
 class CompilationEngine {
 public:
-    CompilationEngine (std::shared_ptr<HackMap>,
-    std::shared_ptr<OutputEngine>,
-    std::shared_ptr<Tokenizer> tokenizer);
+    CompilationEngine (std::shared_ptr<HackMap>, std::shared_ptr<OutputEngine>);
 
     // Setters
     void set_tokenizer (std::shared_ptr<Tokenizer>);
+    void compile ();
 
 private:
     // Compilers
@@ -29,9 +27,13 @@ private:
     void compile_expression ();
     void compile_term ();
     void compile_expression_list ();
+    void compile_statements ();
 
     // Helpers
+    void advance_and_write ();
     void _compile_dec ();
+    void _compile_multiple_dec ();
+    void _compile_var_name ();
 
 private:
     std::shared_ptr<Tokenizer> tokenizer;

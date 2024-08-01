@@ -64,7 +64,9 @@ bool test_compilation_engine_and_xml_output_engine () {
         std::make_shared<Tokenizer> (inp_file, hack_map);
         std::shared_ptr<XMLOutputEngine> output_engine =
         std::make_shared<XMLOutputEngine> ("tests/test.xml", hack_map);
-        CompilationEngine engine (hack_map, output_engine, tokenizer);
+        CompilationEngine engine (hack_map, output_engine);
+        engine.set_tokenizer (tokenizer);
+        engine.compile ();
         return true;
     } catch (Error&) {
         return false;

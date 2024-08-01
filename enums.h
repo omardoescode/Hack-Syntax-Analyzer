@@ -1,4 +1,5 @@
 #pragma once
+
 enum class TokenType {
     KEYWORD,
     SYMBOL,

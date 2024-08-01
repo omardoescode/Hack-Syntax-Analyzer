@@ -9,12 +9,14 @@ std::string HackMap::get_keyword (Keyword value) {
 std::string HackMap::get_token (TokenType value) {
     return tokens[value];
 }
+
 Keyword HackMap::get_keyword (const std::string& target) {
     for (auto& [key, value] : keywords)
         if (value == target)
             return key;
     throw Error ("HackMap::get_keyword: Keyword not found");
 }
+
 bool HackMap::contains_keyword (std::string target) {
     for (auto& [key, value] : keywords)
         if (value == target)
@@ -29,6 +31,12 @@ bool HackMap::contains_symbol (char test) {
     return false;
 }
 
+bool HackMap::contains_operator (char test) {
+    for (auto& val : operators)
+        if (val == test)
+            return true;
+    return false;
+}
 std::map<Keyword, std::string> HackMap::keywords = {
     { Keyword::CLASS, "class" },
     { Keyword::METHOD, "method" },
@@ -62,3 +70,5 @@ std::map<TokenType, std::string> HackMap::tokens = {
 
 std::vector<char> HackMap::symbols = { '(', ')', '{', '}', '[', ']', ',', ';',
     '.', '+', '-', '*', '/', '&', '|', '<', '>', '=', '~' };
+
+std::vector<char> HackMap::operators = { '+', '-', '*', '/', '&', '|', '<', '>', '~' };
