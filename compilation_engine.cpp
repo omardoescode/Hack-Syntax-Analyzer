@@ -204,7 +204,7 @@ void CompilationEngine::compile_statements () {
 }
 
 void CompilationEngine::compile_let () {
-    output_engine->write_non_terminal ("let");
+    output_engine->write_non_terminal ("LetStatement");
 
     Token token;
     // let
@@ -232,7 +232,7 @@ void CompilationEngine::compile_let () {
 }
 
 void CompilationEngine::compile_if () {
-    output_engine->write_non_terminal ("if");
+    output_engine->write_non_terminal ("IfStatement");
 
     Token token;
     advance_and_write (TokenType::KEYWORD, "if");
@@ -265,7 +265,7 @@ void CompilationEngine::compile_if () {
 }
 
 void CompilationEngine::compile_while () {
-    output_engine->write_non_terminal ("while");
+    output_engine->write_non_terminal ("WhileStatement");
 
     advance_and_write (TokenType::KEYWORD, "while");
 
@@ -285,7 +285,7 @@ void CompilationEngine::compile_while () {
 }
 
 void CompilationEngine::compile_do () {
-    output_engine->write_non_terminal ("do");
+    output_engine->write_non_terminal ("DoStatement");
 
     advance_and_write (TokenType::KEYWORD, "do");
 
@@ -297,7 +297,7 @@ void CompilationEngine::compile_do () {
 }
 
 void CompilationEngine::compile_return () {
-    output_engine->write_non_terminal ("return");
+    output_engine->write_non_terminal ("ReturnStatement");
 
     Token token;
 
@@ -331,6 +331,8 @@ void CompilationEngine::compile_parameter_list () {
 }
 
 void CompilationEngine::compile_expression_list (std::string end) {
+    output_engine->write_non_terminal ("ExpressionList");
+
     Token token = tokenizer->next ();
     std::regex pattern (end);
     while (!std::regex_match (token.value, pattern)) {
@@ -343,6 +345,7 @@ void CompilationEngine::compile_expression_list (std::string end) {
 
         token = tokenizer->next ();
     }
+    output_engine->close_non_terminal ();
 }
 void CompilationEngine::compile_expression () {
     output_engine->write_non_terminal ("Expression");
@@ -382,10 +385,10 @@ void CompilationEngine::compile_term () {
     case TokenType::SYMBOL:
         if (token.value == "-" || token.value == "~") {
             advance_and_write (TokenType::SYMBOL);
-            compile_term ();
+            compile_expression ();
         } else if (token.value == "(") {
             advance_and_write (TokenType::SYMBOL, "\\(");
-            compile_term ();
+            compile_expression ();
             advance_and_write (TokenType::SYMBOL, "\\)");
         }
         break;
