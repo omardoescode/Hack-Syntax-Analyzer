@@ -1,3 +1,4 @@
+#include "HackSyntaxAnalyzer.h"
 #include <filesystem>
 #include <iostream>
 
@@ -13,9 +14,6 @@ int main (int argc, char* argv[]) {
         return 1;
     }
 
-    std::string out = std::filesystem::is_directory (inp) ?
-    inp.stem ().string () + ".xml" :
-    inp.stem ().string ().substr (0, inp.stem ().string ().length () - 5) + ".xml";
-
-    std::cout << "Writing to " << out << std::endl;
+    HackSyntaxAnalyzer analyzer (inp);
+    analyzer.analyze ();
 }

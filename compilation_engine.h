@@ -5,10 +5,11 @@
 #include "tokenizer.h"
 class CompilationEngine {
 public:
-    CompilationEngine (std::shared_ptr<HackMap>, std::shared_ptr<OutputEngine>);
+    CompilationEngine (std::shared_ptr<HackMap>);
 
     // Setters
     void set_tokenizer (std::shared_ptr<Tokenizer>);
+    void set_output_engine (std::shared_ptr<OutputEngine>);
     void compile ();
 
 private:

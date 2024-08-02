@@ -1,5 +1,6 @@
 
 #include "compilation_engine.h"
+#include "OutputEngine.h"
 #include "enums.h"
 #include "error.h"
 #include "token.h"
@@ -7,11 +8,13 @@
 #include <memory>
 #include <regex>
 #include <string>
-CompilationEngine::CompilationEngine (std::shared_ptr<HackMap> hack_map,
-std::shared_ptr<OutputEngine> output_engine)
-: hack_map (hack_map), output_engine (output_engine) {
+CompilationEngine::CompilationEngine (std::shared_ptr<HackMap> hack_map)
+: hack_map (hack_map) {
 }
 
+void CompilationEngine::set_output_engine (std::shared_ptr<OutputEngine> new_output_engine) {
+    output_engine = new_output_engine;
+}
 void CompilationEngine::set_tokenizer (std::shared_ptr<Tokenizer> new_tokenizer) {
     tokenizer = new_tokenizer;
 }
