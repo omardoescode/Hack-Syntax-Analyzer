@@ -338,6 +338,7 @@ void CompilationEngine::compile_expression_list (std::string end) {
     }
 }
 void CompilationEngine::compile_expression () {
+    output_engine->write_non_terminal ("Expression");
     Token token;
 
     // TODO:solve the problem for nested expressions
@@ -356,23 +357,22 @@ void CompilationEngine::compile_expression () {
             advance_and_write (TokenType::SYMBOL);
             compile_expression ();
         }
-        return;
     } else if (token.value == "~" || token.value == "-") {
         advance_and_write (TokenType::SYMBOL);
         compile_expression ();
-        return;
+    } else {
+        compile_term ();
+
+        token = tokenizer->next ();
+        if (token.type == TokenType::SYMBOL &&
+        hack_map->contains_operator (token.value.at (0))) {
+            // operators
+            advance_and_write (TokenType::SYMBOL);
+
+            compile_expression ();
+        }
     }
-
-    compile_term ();
-
-    token = tokenizer->next ();
-    if (token.type == TokenType::SYMBOL &&
-    hack_map->contains_operator (token.value.at (0))) {
-        // operators
-        advance_and_write (TokenType::SYMBOL);
-
-        compile_expression ();
-    }
+    output_engine->close_non_terminal ();
 }
 
 void CompilationEngine::compile_term () {
