@@ -19,6 +19,8 @@
   <identifier>SquareGame</identifier>
   <identifier>new</identifier>
   <symbol>(</symbol>
+  <ParameterList>
+  </ParameterList>
   <symbol>)</symbol>
   <symbol>{</symbol>
   <SubroutineBody>
@@ -57,6 +59,8 @@
   <keyword>void</keyword>
   <identifier>dispose</identifier>
   <symbol>(</symbol>
+  <ParameterList>
+  </ParameterList>
   <symbol>)</symbol>
   <symbol>{</symbol>
   <SubroutineBody>
@@ -95,6 +99,8 @@
   <keyword>void</keyword>
   <identifier>moveSquare</identifier>
   <symbol>(</symbol>
+  <ParameterList>
+  </ParameterList>
   <symbol>)</symbol>
   <symbol>{</symbol>
   <SubroutineBody>
@@ -208,6 +214,8 @@
   <keyword>void</keyword>
   <identifier>run</identifier>
   <symbol>(</symbol>
+  <ParameterList>
+  </ParameterList>
   <symbol>)</symbol>
   <symbol>{</symbol>
   <SubroutineBody>

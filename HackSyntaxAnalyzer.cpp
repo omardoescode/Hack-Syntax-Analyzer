@@ -19,7 +19,8 @@ void HackSyntaxAnalyzer::analyze () {
     }
 
     for (auto& entry : std::filesystem::recursive_directory_iterator (inp)) {
-        analyze_file (entry.path ());
+        if (entry.path ().extension () == ".jack")
+            analyze_file (entry.path ());
     }
 }
 

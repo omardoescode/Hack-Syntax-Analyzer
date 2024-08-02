@@ -313,6 +313,8 @@ void CompilationEngine::compile_return () {
 }
 
 void CompilationEngine::compile_parameter_list () {
+    output_engine->write_non_terminal ("ParameterList");
+
     Token token;
     token = tokenizer->next ();
     while (token.value != ")") {
@@ -324,6 +326,8 @@ void CompilationEngine::compile_parameter_list () {
         if (token.value == ",")
             advance_and_write (TokenType::SYMBOL, ",");
     }
+
+    output_engine->close_non_terminal ();
 }
 
 void CompilationEngine::compile_expression_list (std::string end) {
@@ -344,37 +348,17 @@ void CompilationEngine::compile_expression () {
     output_engine->write_non_terminal ("Expression");
     Token token;
 
-    // TODO:solve the problem for nested expressions
+    compile_term ();
+
     token = tokenizer->next ();
-    if (token.value == "(") {
-        std::cout << "openning" << std::endl;
-        advance_and_write (TokenType::SYMBOL, "\\(");
-        compile_expression ();
-        advance_and_write (TokenType::SYMBOL, "\\)");
-
-        std::cout << "closing" << std::endl;
-
-        token = tokenizer->next ();
-        if (token.type == TokenType::SYMBOL &&
-        hack_map->contains_operator (token.value.at (0))) {
-            advance_and_write (TokenType::SYMBOL);
-            compile_expression ();
-        }
-    } else if (token.value == "~" || token.value == "-") {
+    if (token.type == TokenType::SYMBOL &&
+    hack_map->contains_operator (token.value.at (0))) {
+        // operators
         advance_and_write (TokenType::SYMBOL);
+
         compile_expression ();
-    } else {
-        compile_term ();
-
-        token = tokenizer->next ();
-        if (token.type == TokenType::SYMBOL &&
-        hack_map->contains_operator (token.value.at (0))) {
-            // operators
-            advance_and_write (TokenType::SYMBOL);
-
-            compile_expression ();
-        }
     }
+
     output_engine->close_non_terminal ();
 }
 
@@ -396,8 +380,14 @@ void CompilationEngine::compile_term () {
 
         break;
     case TokenType::SYMBOL:
-        advance_and_write (TokenType::SYMBOL);
-        compile_term ();
+        if (token.value == "-" || token.value == "~") {
+            advance_and_write (TokenType::SYMBOL);
+            compile_term ();
+        } else if (token.value == "(") {
+            advance_and_write (TokenType::SYMBOL, "\\(");
+            compile_term ();
+            advance_and_write (TokenType::SYMBOL, "\\)");
+        }
         break;
     case TokenType::IDENTIFIER: {
         _compile_subroutine_call (false);
