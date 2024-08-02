@@ -10,6 +10,12 @@ std::string HackMap::get_token (TokenType value) {
     return tokens[value];
 }
 
+template <typename T> bool HackMap::contains (T target, std::vector<T> values) {
+    for (auto& val : values)
+        if (val == target)
+            return true;
+    return false;
+}
 Keyword HackMap::get_keyword (const std::string& target) {
     for (auto& [key, value] : keywords)
         if (value == target)
@@ -25,21 +31,20 @@ bool HackMap::contains_keyword (std::string target) {
 }
 
 bool HackMap::contains_symbol (char test) {
-    for (auto& val : symbols)
-        if (val == test)
-            return true;
-    return false;
+    return contains (test, symbols);
 }
 
 bool HackMap::contains_operator (char test) {
-    for (auto& val : operators)
-        if (val == test)
-            return true;
-    return false;
+    return contains (test, operators);
+}
+
+bool HackMap::contains_keyword_constant (std::string target) {
+    return contains (target, keyword_constants);
 }
 std::map<Keyword, std::string> HackMap::keywords = {
     { Keyword::CLASS, "class" },
     { Keyword::METHOD, "method" },
+    { Keyword::FUNCTION, "function" },
     { Keyword::CONSTRUCTOR, "constructor" },
     { Keyword::INT, "int" },
     { Keyword::BOOL, "bool" },
@@ -64,11 +69,13 @@ std::map<TokenType, std::string> HackMap::tokens = {
     { TokenType::SYMBOL, "symbol" },
     { TokenType::IDENTIFIER, "identifier" },
     { TokenType::KEYWORD, "keyword" },
-    { TokenType::INT_CONST, "int constant" },
-    { TokenType::STRING_CONSTANT, "string constant" },
+    { TokenType::INT_CONST, "int_constant" },
+    { TokenType::STRING_CONSTANT, "string_constant" },
 };
 
 std::vector<char> HackMap::symbols = { '(', ')', '{', '}', '[', ']', ',', ';',
     '.', '+', '-', '*', '/', '&', '|', '<', '>', '=', '~' };
 
 std::vector<char> HackMap::operators = { '+', '-', '*', '/', '&', '|', '<', '>', '~' };
+
+std::vector<std::string> HackMap::keyword_constants = { "true", "false", "null", "this" };

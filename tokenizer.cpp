@@ -22,10 +22,11 @@ Token Tokenizer::advance () {
     return tokens_vec[current];
 }
 
-Token Tokenizer::next () {
-    return tokens_vec[1 + current];
+Token Tokenizer::next (int count) {
+    return tokens_vec[count + current];
 }
 void Tokenizer::tokenize () {
+    in_string = false;
     std::string current_line;
     while (std::getline (inp_file, current_line)) {
         if (inp_file.bad ())
@@ -37,9 +38,45 @@ void Tokenizer::tokenize () {
             continue;
 
         std::istringstream codeline_stream{ current_line };
+        char next;
         std::string value;
-        while (codeline_stream >> value)
+        while (codeline_stream.get (next)) {
+            if (next == '"') {
+                if (in_string) {
+                    // End of string literal
+                    value += next;
+                    process_word (value);
+                    value.clear ();
+                    in_string = false;
+                } else {
+
+                    // Start of string literal
+                    if (!value.empty ()) {
+                        process_word (value);
+                        value.clear ();
+                    }
+                    value += next;
+                    in_string = true;
+                }
+            } else if (in_string) {
+                // Inside a string literal
+                value += next;
+            } else if (isspace (next)) {
+                // Delimiters outside of string literals
+                if (!value.empty ()) {
+                    process_word (value);
+                    value.clear ();
+                }
+            } else {
+                // Regular characters
+                value += next;
+            }
+        }
+
+        // Process any remaining value after end of line
+        if (!value.empty ()) {
             process_word (value);
+        }
     }
 }
 
@@ -56,24 +93,13 @@ void Tokenizer::trim_codeline (std::string& line) {
 
 void Tokenizer::process_word (const std::string& word) {
     std::string token;
+
+    if (word.at (0) == '"')
+        process_value (word, true);
     for (int i = 0, __end = word.length (); i < __end; i++) {
         auto& c = word[i];
 
-        // handle strings
-        if (!in_comment_block && in_string) {
-            if (c == '"') {
-                process_value (token, true);
-                in_string = false;
-            } else {
-                token += c;
-            }
-        } else if (!in_comment_block && c == '"') {
-            if (!token.empty ())
-                process_value (token);
-            token     = "";
-            in_string = true;
-            // handle comments
-        } else if (in_comment_block) {
+        if (in_comment_block) {
             if (word.substr (i, 2) == "*/") {
                 i++;
                 in_comment_block = false;
@@ -94,11 +120,12 @@ void Tokenizer::process_word (const std::string& word) {
         }
     }
 
-    if (!token.empty ())
+    if (!token.empty () && !in_string)
         process_value (token);
 }
 
 void Tokenizer::process_value (const std::string& value, bool is_string) {
+
     if (is_string)
         tokens_vec.push_back ({ value, TokenType::STRING_CONSTANT });
     else if (hack_map->contains_keyword (value))
@@ -111,41 +138,9 @@ void Tokenizer::process_value (const std::string& value, bool is_string) {
         tokens_vec.push_back ({ value, TokenType::IDENTIFIER });
 }
 
-void Tokenizer::check_current_token (TokenType match, std::string error_msg) {
 
-    if (tokens_vec[current].type != match)
-        throw Error (error_msg);
-}
 TokenType Tokenizer::token_type () {
     if (current < 0)
         throw Error ("Tokenizer::token_type: No current token");
     return tokens_vec[current].type;
-}
-
-Keyword Tokenizer::keyword () {
-    check_current_token (TokenType::KEYWORD,
-    "Tokenizer::check_current_token: Next token isn't a "
-    "keyword");
-
-    return hack_map->get_keyword (tokens_vec[current].value);
-}
-
-int Tokenizer::int_const () {
-    check_current_token (TokenType::INT_CONST,
-    "Tokenizer::int_const: Next token isn't an int constant");
-    return std::stoi (tokens_vec[current].value);
-}
-
-std::string Tokenizer::string_const () {
-    check_current_token (TokenType::STRING_CONSTANT,
-    "Tokenizer::string_const: Next token isn't a string constant");
-
-    return tokens_vec[current].value;
-}
-
-std::string Tokenizer::identifier () {
-    check_current_token (TokenType::IDENTIFIER,
-    "Tokenizer::string_const: Next token isn't an identifier");
-
-    return tokens_vec[current].value;
 }

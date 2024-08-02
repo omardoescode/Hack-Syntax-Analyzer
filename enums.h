@@ -12,6 +12,7 @@ enum class Keyword {
     CLASS,
     METHOD,
     CONSTRUCTOR,
+    FUNCTION,
     INT,
     BOOL,
     CHAR,

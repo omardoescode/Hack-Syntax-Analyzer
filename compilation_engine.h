@@ -26,14 +26,16 @@ private:
     void compile_do ();
     void compile_expression ();
     void compile_term ();
-    void compile_expression_list ();
+    void compile_expression_list (std::string end);
     void compile_statements ();
 
     // Helpers
-    void advance_and_write ();
-    void _compile_dec ();
+    void advance_and_write (TokenType);
+    void advance_and_write (std::vector<TokenType>);
+    void advance_and_write (TokenType, std::string);
     void _compile_multiple_dec ();
     void _compile_var_name ();
+    void _compile_subroutine_call (bool must = true);
 
 private:
     std::shared_ptr<Tokenizer> tokenizer;

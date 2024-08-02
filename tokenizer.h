@@ -13,20 +13,14 @@ public:
 
     bool has_more_tokens ();
     Token advance ();
-    Token next ();
+    Token next (int steps = 1);
     TokenType token_type ();
-    Keyword keyword ();
-    int int_const ();
-    std::string string_const ();
-    std::string identifier ();
-    char symbol ();
 
 private:
     void tokenize ();
     void trim_codeline (std::string&);
     void process_word (const std::string&);
     void process_value (const std::string&, bool is_string = false);
-    void check_current_token (TokenType, std::string);
 
 private:
     std::vector<Token> tokens_vec;

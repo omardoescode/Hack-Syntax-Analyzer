@@ -6,6 +6,7 @@
 #include <filesystem>
 #include <iostream>
 #include <memory>
+#include <regex>
 
 bool test_hack_map ();
 bool test_tokenizer ();
@@ -63,12 +64,13 @@ bool test_compilation_engine_and_xml_output_engine () {
         std::shared_ptr<Tokenizer> tokenizer =
         std::make_shared<Tokenizer> (inp_file, hack_map);
         std::shared_ptr<XMLOutputEngine> output_engine =
-        std::make_shared<XMLOutputEngine> ("tests/test.xml", hack_map);
+        std::make_shared<XMLOutputEngine> ("tests/test.xml", hack_map, 1);
         CompilationEngine engine (hack_map, output_engine);
         engine.set_tokenizer (tokenizer);
         engine.compile ();
         return true;
-    } catch (Error&) {
+    } catch (Error& errr) {
+        // throw errr;
         return false;
     }
 }
