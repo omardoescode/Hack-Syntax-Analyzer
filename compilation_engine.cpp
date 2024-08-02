@@ -122,14 +122,10 @@ void CompilationEngine::compile_subroutine_dec () {
         // )
         advance_and_write (TokenType::SYMBOL, "\\)");
 
-        // {
-        advance_and_write (TokenType::SYMBOL, "\\{");
 
         // subroutine body
         compile_subroutine_body ();
 
-        // }
-        advance_and_write (TokenType::SYMBOL, "\\}");
         token = tokenizer->next ();
         output_engine->close_non_terminal ();
     }
@@ -137,8 +133,16 @@ void CompilationEngine::compile_subroutine_dec () {
 
 void CompilationEngine::compile_subroutine_body () {
     output_engine->write_non_terminal ("SubroutineBody");
+
+    // {
+    advance_and_write (TokenType::SYMBOL, "\\{");
+
     compile_var_dec ();
     compile_statements ();
+
+    // }
+    advance_and_write (TokenType::SYMBOL, "\\}");
+
     output_engine->close_non_terminal ();
 }
 void CompilationEngine::compile_var_dec () {
@@ -366,6 +370,8 @@ void CompilationEngine::compile_expression () {
 }
 
 void CompilationEngine::compile_term () {
+    output_engine->write_non_terminal ("term");
+
     Token token;
 
     token = tokenizer->next ();
@@ -396,6 +402,8 @@ void CompilationEngine::compile_term () {
         _compile_subroutine_call (false);
     }
     }
+
+    output_engine->close_non_terminal ();
 }
 
 

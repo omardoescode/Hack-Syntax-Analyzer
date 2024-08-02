@@ -21,7 +21,7 @@ void XMLOutputEngine::write_terminal (Token token) {
     write_spaces ();
 
     const std::string& tag = hack_map->get_token (token.type);
-    out_file << "<" << tag << ">" << token.value << "</" << tag << ">\n";
+    out_file << "<" << tag << "> " << token.value << " </" << tag << ">\n";
 }
 
 void XMLOutputEngine::write_non_terminal (const std::string& tag) {
