@@ -31,3 +31,21 @@ enum class Keyword {
     NULL_keyword,
     THIS,
 };
+
+enum class NonTerminalRules {
+    CLASS,
+    CLASS_VAR_DEC,
+    SUBROUTINE_DEC,
+    SUBROUTINE_BODY,
+    VAR_DEC,
+    STATEMENTS,
+    LET_STATEMENT,
+    IF_STATEMENT,
+    WHILE_STATEMENT,
+    RETURN_STATEMENT,
+    DO_STATEMENT,
+    PARAMETER_LIST,
+    EXPRESSION_LIST,
+    TERM,
+    EXPRESSION,
+};

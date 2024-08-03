@@ -57,7 +57,7 @@ void CompilationEngine::advance_and_write (TokenType type, std::string value) {
 }
 
 void CompilationEngine::compile_class () {
-    output_engine->write_non_terminal ("class");
+    output_engine->write_non_terminal (NonTerminalRules::CLASS);
     Token token;
     advance_and_write (TokenType::KEYWORD, "\\bclass\\b");
 
@@ -78,7 +78,7 @@ void CompilationEngine::compile_class_var_dec () {
     std::regex pattern ("\\b(static|field)\\b");
 
     while (std::regex_match (token.value, pattern)) {
-        output_engine->write_non_terminal ("ClassVarDec");
+        output_engine->write_non_terminal (NonTerminalRules::CLASS_VAR_DEC);
 
         // static|field
         advance_and_write (TokenType::KEYWORD);
@@ -102,7 +102,7 @@ void CompilationEngine::compile_subroutine_dec () {
 
     while (std::regex_match (token.value, pattern)) {
 
-        output_engine->write_non_terminal ("SubroutineDec");
+        output_engine->write_non_terminal (NonTerminalRules::SUBROUTINE_DEC);
 
         // constructor|method|function
         advance_and_write (TokenType::KEYWORD, "\\b(constructor|method|function)\\b");
@@ -132,7 +132,7 @@ void CompilationEngine::compile_subroutine_dec () {
 }
 
 void CompilationEngine::compile_subroutine_body () {
-    output_engine->write_non_terminal ("SubroutineBody");
+    output_engine->write_non_terminal (NonTerminalRules::SUBROUTINE_BODY);
 
     // {
     advance_and_write (TokenType::SYMBOL, "\\{");
@@ -152,7 +152,7 @@ void CompilationEngine::compile_var_dec () {
     token = tokenizer->next ();
 
     while (std::regex_match (token.value, pattern)) {
-        output_engine->write_non_terminal ("VarDec");
+        output_engine->write_non_terminal (NonTerminalRules::VAR_DEC);
         // var
         advance_and_write (TokenType::KEYWORD, "\\bvar\\b");
 
@@ -185,7 +185,7 @@ void CompilationEngine::compile_var_dec () {
 }
 
 void CompilationEngine::compile_statements () {
-    output_engine->write_non_terminal ("Statements");
+    output_engine->write_non_terminal (NonTerminalRules::STATEMENTS);
     Token token;
     std::regex pattern ("\\b(let|do|return|while|if)\\b");
 
@@ -208,7 +208,7 @@ void CompilationEngine::compile_statements () {
 }
 
 void CompilationEngine::compile_let () {
-    output_engine->write_non_terminal ("LetStatement");
+    output_engine->write_non_terminal (NonTerminalRules::LET_STATEMENT);
 
     Token token;
     // let
@@ -236,7 +236,7 @@ void CompilationEngine::compile_let () {
 }
 
 void CompilationEngine::compile_if () {
-    output_engine->write_non_terminal ("IfStatement");
+    output_engine->write_non_terminal (NonTerminalRules::IF_STATEMENT);
 
     Token token;
     advance_and_write (TokenType::KEYWORD, "if");
@@ -269,7 +269,7 @@ void CompilationEngine::compile_if () {
 }
 
 void CompilationEngine::compile_while () {
-    output_engine->write_non_terminal ("WhileStatement");
+    output_engine->write_non_terminal (NonTerminalRules::WHILE_STATEMENT);
 
     advance_and_write (TokenType::KEYWORD, "while");
 
@@ -289,7 +289,7 @@ void CompilationEngine::compile_while () {
 }
 
 void CompilationEngine::compile_do () {
-    output_engine->write_non_terminal ("DoStatement");
+    output_engine->write_non_terminal (NonTerminalRules::DO_STATEMENT);
 
     advance_and_write (TokenType::KEYWORD, "do");
 
@@ -301,7 +301,7 @@ void CompilationEngine::compile_do () {
 }
 
 void CompilationEngine::compile_return () {
-    output_engine->write_non_terminal ("ReturnStatement");
+    output_engine->write_non_terminal (NonTerminalRules::RETURN_STATEMENT);
 
     Token token;
 
@@ -317,7 +317,7 @@ void CompilationEngine::compile_return () {
 }
 
 void CompilationEngine::compile_parameter_list () {
-    output_engine->write_non_terminal ("ParameterList");
+    output_engine->write_non_terminal (NonTerminalRules::PARAMETER_LIST);
 
     Token token;
     token = tokenizer->next ();
@@ -335,7 +335,7 @@ void CompilationEngine::compile_parameter_list () {
 }
 
 void CompilationEngine::compile_expression_list (std::string end) {
-    output_engine->write_non_terminal ("ExpressionList");
+    output_engine->write_non_terminal (NonTerminalRules::EXPRESSION_LIST);
 
     Token token = tokenizer->next ();
     std::regex pattern (end);
@@ -352,7 +352,7 @@ void CompilationEngine::compile_expression_list (std::string end) {
     output_engine->close_non_terminal ();
 }
 void CompilationEngine::compile_expression () {
-    output_engine->write_non_terminal ("Expression");
+    output_engine->write_non_terminal (NonTerminalRules::EXPRESSION);
     Token token;
 
     compile_term ();
@@ -370,7 +370,7 @@ void CompilationEngine::compile_expression () {
 }
 
 void CompilationEngine::compile_term () {
-    output_engine->write_non_terminal ("term");
+    output_engine->write_non_terminal (NonTerminalRules::TERM);
 
     Token token;
 

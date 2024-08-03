@@ -24,10 +24,10 @@ void XMLOutputEngine::write_terminal (Token token) {
     out_file << "<" << tag << "> " << token.value << " </" << tag << ">\n";
 }
 
-void XMLOutputEngine::write_non_terminal (const std::string& tag) {
+void XMLOutputEngine::write_non_terminal (const NonTerminalRules& tag) {
     tags.push (tag);
     write_spaces ();
-    out_file << "<" << tag << ">\n";
+    out_file << "<" << non_terminals[tag] << ">\n";
     spaces += tab_width;
 }
 
@@ -40,5 +40,23 @@ void XMLOutputEngine::close_non_terminal () {
 
     spaces -= tab_width;
     write_spaces ();
-    out_file << "</" << tag << ">\n";
+    out_file << "</" << non_terminals[tag] << ">\n";
 }
+
+std::map<NonTerminalRules, std::string> XMLOutputEngine::non_terminals = {
+    { NonTerminalRules::CLASS, "class" },
+    { NonTerminalRules::CLASS_VAR_DEC, "ClassVarDec" },
+    { NonTerminalRules::SUBROUTINE_DEC, "SubroutineDec" },
+    { NonTerminalRules::SUBROUTINE_BODY, "SubroutineBody" },
+    { NonTerminalRules::VAR_DEC, "VarDec" },
+    { NonTerminalRules::STATEMENTS, "Statements" },
+    { NonTerminalRules::IF_STATEMENT, "IfStatement" },
+    { NonTerminalRules::LET_STATEMENT, "Let_STATEMENT" },
+    { NonTerminalRules::WHILE_STATEMENT, "WhileStatement" },
+    { NonTerminalRules::RETURN_STATEMENT, "ReturnStatement" },
+    { NonTerminalRules::DO_STATEMENT, "DoStatement" },
+    { NonTerminalRules::PARAMETER_LIST, "ParameterLilst" },
+    { NonTerminalRules::EXPRESSION_LIST, "ExpressionList" },
+    { NonTerminalRules::EXPRESSION, "Expression" },
+    { NonTerminalRules::TERM, "Term" },
+};

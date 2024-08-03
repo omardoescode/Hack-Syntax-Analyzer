@@ -21,7 +21,7 @@
   <identifier> Square </identifier>
   <identifier> new </identifier>
   <symbol> ( </symbol>
-  <ParameterList>
+  <ParameterLilst>
    <keyword> int </keyword>
    <identifier> Ax </identifier>
    <symbol> , </symbol>
@@ -30,44 +30,44 @@
    <symbol> , </symbol>
    <keyword> int </keyword>
    <identifier> Asize </identifier>
-  </ParameterList>
+  </ParameterLilst>
   <symbol> ) </symbol>
   <SubroutineBody>
    <symbol> { </symbol>
    <Statements>
-    <LetStatement>
+    <Let_STATEMENT>
      <keyword> let </keyword>
      <identifier> x </identifier>
      <symbol> = </symbol>
      <Expression>
-      <term>
+      <Term>
        <identifier> Ax </identifier>
-      </term>
+      </Term>
      </Expression>
      <symbol> ; </symbol>
-    </LetStatement>
-    <LetStatement>
+    </Let_STATEMENT>
+    <Let_STATEMENT>
      <keyword> let </keyword>
      <identifier> y </identifier>
      <symbol> = </symbol>
      <Expression>
-      <term>
+      <Term>
        <identifier> Ay </identifier>
-      </term>
+      </Term>
      </Expression>
      <symbol> ; </symbol>
-    </LetStatement>
-    <LetStatement>
+    </Let_STATEMENT>
+    <Let_STATEMENT>
      <keyword> let </keyword>
      <identifier> size </identifier>
      <symbol> = </symbol>
      <Expression>
-      <term>
+      <Term>
        <identifier> Asize </identifier>
-      </term>
+      </Term>
      </Expression>
      <symbol> ; </symbol>
-    </LetStatement>
+    </Let_STATEMENT>
     <DoStatement>
      <keyword> do </keyword>
      <identifier> draw </identifier>
@@ -80,9 +80,9 @@
     <ReturnStatement>
      <keyword> return </keyword>
      <Expression>
-      <term>
+      <Term>
        <keyword> this </keyword>
-      </term>
+      </Term>
      </Expression>
      <symbol> ; </symbol>
     </ReturnStatement>
@@ -95,8 +95,8 @@
   <keyword> void </keyword>
   <identifier> dispose </identifier>
   <symbol> ( </symbol>
-  <ParameterList>
-  </ParameterList>
+  <ParameterLilst>
+  </ParameterLilst>
   <symbol> ) </symbol>
   <SubroutineBody>
    <symbol> { </symbol>
@@ -109,9 +109,9 @@
      <symbol> ( </symbol>
      <ExpressionList>
       <Expression>
-       <term>
+       <Term>
         <keyword> this </keyword>
-       </term>
+       </Term>
       </Expression>
      </ExpressionList>
      <symbol> ) </symbol>
@@ -130,8 +130,8 @@
   <keyword> void </keyword>
   <identifier> draw </identifier>
   <symbol> ( </symbol>
-  <ParameterList>
-  </ParameterList>
+  <ParameterLilst>
+  </ParameterLilst>
   <symbol> ) </symbol>
   <SubroutineBody>
    <symbol> { </symbol>
@@ -144,9 +144,9 @@
      <symbol> ( </symbol>
      <ExpressionList>
       <Expression>
-       <term>
+       <Term>
         <keyword> true </keyword>
-       </term>
+       </Term>
       </Expression>
      </ExpressionList>
      <symbol> ) </symbol>
@@ -160,38 +160,38 @@
      <symbol> ( </symbol>
      <ExpressionList>
       <Expression>
-       <term>
+       <Term>
         <identifier> x </identifier>
-       </term>
+       </Term>
       </Expression>
       <symbol> , </symbol>
       <Expression>
-       <term>
+       <Term>
         <identifier> y </identifier>
-       </term>
+       </Term>
       </Expression>
       <symbol> , </symbol>
       <Expression>
-       <term>
+       <Term>
         <identifier> x </identifier>
-       </term>
+       </Term>
        <symbol> + </symbol>
        <Expression>
-        <term>
+        <Term>
          <identifier> size </identifier>
-        </term>
+        </Term>
        </Expression>
       </Expression>
       <symbol> , </symbol>
       <Expression>
-       <term>
+       <Term>
         <identifier> y </identifier>
-       </term>
+       </Term>
        <symbol> + </symbol>
        <Expression>
-        <term>
+        <Term>
          <identifier> size </identifier>
-        </term>
+        </Term>
        </Expression>
       </Expression>
      </ExpressionList>
@@ -211,8 +211,8 @@
   <keyword> void </keyword>
   <identifier> erase </identifier>
   <symbol> ( </symbol>
-  <ParameterList>
-  </ParameterList>
+  <ParameterLilst>
+  </ParameterLilst>
   <symbol> ) </symbol>
   <SubroutineBody>
    <symbol> { </symbol>
@@ -225,9 +225,9 @@
      <symbol> ( </symbol>
      <ExpressionList>
       <Expression>
-       <term>
+       <Term>
         <keyword> false </keyword>
-       </term>
+       </Term>
       </Expression>
      </ExpressionList>
      <symbol> ) </symbol>
@@ -241,38 +241,38 @@
      <symbol> ( </symbol>
      <ExpressionList>
       <Expression>
-       <term>
+       <Term>
         <identifier> x </identifier>
-       </term>
+       </Term>
       </Expression>
       <symbol> , </symbol>
       <Expression>
-       <term>
+       <Term>
         <identifier> y </identifier>
-       </term>
+       </Term>
       </Expression>
       <symbol> , </symbol>
       <Expression>
-       <term>
+       <Term>
         <identifier> x </identifier>
-       </term>
+       </Term>
        <symbol> + </symbol>
        <Expression>
-        <term>
+        <Term>
          <identifier> size </identifier>
-        </term>
+        </Term>
        </Expression>
       </Expression>
       <symbol> , </symbol>
       <Expression>
-       <term>
+       <Term>
         <identifier> y </identifier>
-       </term>
+       </Term>
        <symbol> + </symbol>
        <Expression>
-        <term>
+        <Term>
          <identifier> size </identifier>
-        </term>
+        </Term>
        </Expression>
       </Expression>
      </ExpressionList>
@@ -292,8 +292,8 @@
   <keyword> void </keyword>
   <identifier> incSize </identifier>
   <symbol> ( </symbol>
-  <ParameterList>
-  </ParameterList>
+  <ParameterLilst>
+  </ParameterLilst>
   <symbol> ) </symbol>
   <SubroutineBody>
    <symbol> { </symbol>
@@ -302,62 +302,62 @@
      <keyword> if </keyword>
      <symbol> ( </symbol>
      <Expression>
-      <term>
+      <Term>
        <symbol> ( </symbol>
        <Expression>
-        <term>
+        <Term>
          <symbol> ( </symbol>
          <Expression>
-          <term>
+          <Term>
            <identifier> y </identifier>
-          </term>
+          </Term>
           <symbol> + </symbol>
           <Expression>
-           <term>
+           <Term>
             <identifier> size </identifier>
-           </term>
+           </Term>
           </Expression>
          </Expression>
          <symbol> ) </symbol>
-        </term>
+        </Term>
         <symbol> < </symbol>
         <Expression>
-         <term>
+         <Term>
           <int_constant> 254 </int_constant>
-         </term>
+         </Term>
         </Expression>
        </Expression>
        <symbol> ) </symbol>
-      </term>
+      </Term>
       <symbol> & </symbol>
       <Expression>
-       <term>
+       <Term>
         <symbol> ( </symbol>
         <Expression>
-         <term>
+         <Term>
           <symbol> ( </symbol>
           <Expression>
-           <term>
+           <Term>
             <identifier> x </identifier>
-           </term>
+           </Term>
            <symbol> + </symbol>
            <Expression>
-            <term>
+            <Term>
              <identifier> size </identifier>
-            </term>
+            </Term>
            </Expression>
           </Expression>
           <symbol> ) </symbol>
-         </term>
+         </Term>
          <symbol> < </symbol>
          <Expression>
-          <term>
+          <Term>
            <int_constant> 510 </int_constant>
-          </term>
+          </Term>
          </Expression>
         </Expression>
         <symbol> ) </symbol>
-       </term>
+       </Term>
       </Expression>
      </Expression>
      <symbol> ) </symbol>
@@ -372,23 +372,23 @@
        <symbol> ) </symbol>
        <symbol> ; </symbol>
       </DoStatement>
-      <LetStatement>
+      <Let_STATEMENT>
        <keyword> let </keyword>
        <identifier> size </identifier>
        <symbol> = </symbol>
        <Expression>
-        <term>
+        <Term>
          <identifier> size </identifier>
-        </term>
+        </Term>
         <symbol> + </symbol>
         <Expression>
-         <term>
+         <Term>
           <int_constant> 2 </int_constant>
-         </term>
+         </Term>
         </Expression>
        </Expression>
        <symbol> ; </symbol>
-      </LetStatement>
+      </Let_STATEMENT>
       <DoStatement>
        <keyword> do </keyword>
        <identifier> draw </identifier>
@@ -414,8 +414,8 @@
   <keyword> void </keyword>
   <identifier> decSize </identifier>
   <symbol> ( </symbol>
-  <ParameterList>
-  </ParameterList>
+  <ParameterLilst>
+  </ParameterLilst>
   <symbol> ) </symbol>
   <SubroutineBody>
    <symbol> { </symbol>
@@ -424,14 +424,14 @@
      <keyword> if </keyword>
      <symbol> ( </symbol>
      <Expression>
-      <term>
+      <Term>
        <identifier> size </identifier>
-      </term>
+      </Term>
       <symbol> > </symbol>
       <Expression>
-       <term>
+       <Term>
         <int_constant> 2 </int_constant>
-       </term>
+       </Term>
       </Expression>
      </Expression>
      <symbol> ) </symbol>
@@ -446,23 +446,23 @@
        <symbol> ) </symbol>
        <symbol> ; </symbol>
       </DoStatement>
-      <LetStatement>
+      <Let_STATEMENT>
        <keyword> let </keyword>
        <identifier> size </identifier>
        <symbol> = </symbol>
        <Expression>
-        <term>
+        <Term>
          <identifier> size </identifier>
-        </term>
+        </Term>
         <symbol> - </symbol>
         <Expression>
-         <term>
+         <Term>
           <int_constant> 2 </int_constant>
-         </term>
+         </Term>
         </Expression>
        </Expression>
        <symbol> ; </symbol>
-      </LetStatement>
+      </Let_STATEMENT>
       <DoStatement>
        <keyword> do </keyword>
        <identifier> draw </identifier>
@@ -488,8 +488,8 @@
   <keyword> void </keyword>
   <identifier> moveUp </identifier>
   <symbol> ( </symbol>
-  <ParameterList>
-  </ParameterList>
+  <ParameterLilst>
+  </ParameterLilst>
   <symbol> ) </symbol>
   <SubroutineBody>
    <symbol> { </symbol>
@@ -498,14 +498,14 @@
      <keyword> if </keyword>
      <symbol> ( </symbol>
      <Expression>
-      <term>
+      <Term>
        <identifier> y </identifier>
-      </term>
+      </Term>
       <symbol> > </symbol>
       <Expression>
-       <term>
+       <Term>
         <int_constant> 1 </int_constant>
-       </term>
+       </Term>
       </Expression>
      </Expression>
      <symbol> ) </symbol>
@@ -519,9 +519,9 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <keyword> false </keyword>
-         </term>
+         </Term>
         </Expression>
        </ExpressionList>
        <symbol> ) </symbol>
@@ -535,79 +535,79 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <symbol> ( </symbol>
           <Expression>
-           <term>
+           <Term>
             <identifier> y </identifier>
-           </term>
+           </Term>
            <symbol> + </symbol>
            <Expression>
-            <term>
+            <Term>
              <identifier> size </identifier>
-            </term>
+            </Term>
            </Expression>
           </Expression>
           <symbol> ) </symbol>
-         </term>
+         </Term>
          <symbol> - </symbol>
          <Expression>
-          <term>
+          <Term>
            <int_constant> 1 </int_constant>
-          </term>
+          </Term>
          </Expression>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <identifier> size </identifier>
-          </term>
+          </Term>
          </Expression>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <identifier> size </identifier>
-          </term>
+          </Term>
          </Expression>
         </Expression>
        </ExpressionList>
        <symbol> ) </symbol>
        <symbol> ; </symbol>
       </DoStatement>
-      <LetStatement>
+      <Let_STATEMENT>
        <keyword> let </keyword>
        <identifier> y </identifier>
        <symbol> = </symbol>
        <Expression>
-        <term>
+        <Term>
          <identifier> y </identifier>
-        </term>
+        </Term>
         <symbol> - </symbol>
         <Expression>
-         <term>
+         <Term>
           <int_constant> 2 </int_constant>
-         </term>
+         </Term>
         </Expression>
        </Expression>
        <symbol> ; </symbol>
-      </LetStatement>
+      </Let_STATEMENT>
       <DoStatement>
        <keyword> do </keyword>
        <identifier> Screen </identifier>
@@ -616,9 +616,9 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <keyword> true </keyword>
-         </term>
+         </Term>
         </Expression>
        </ExpressionList>
        <symbol> ) </symbol>
@@ -632,38 +632,38 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <identifier> size </identifier>
-          </term>
+          </Term>
          </Expression>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <int_constant> 1 </int_constant>
-          </term>
+          </Term>
          </Expression>
         </Expression>
        </ExpressionList>
@@ -686,8 +686,8 @@
   <keyword> void </keyword>
   <identifier> moveDown </identifier>
   <symbol> ( </symbol>
-  <ParameterList>
-  </ParameterList>
+  <ParameterLilst>
+  </ParameterLilst>
   <symbol> ) </symbol>
   <SubroutineBody>
    <symbol> { </symbol>
@@ -696,26 +696,26 @@
      <keyword> if </keyword>
      <symbol> ( </symbol>
      <Expression>
-      <term>
+      <Term>
        <symbol> ( </symbol>
        <Expression>
-        <term>
+        <Term>
          <identifier> y </identifier>
-        </term>
+        </Term>
         <symbol> + </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> size </identifier>
-         </term>
+         </Term>
         </Expression>
        </Expression>
        <symbol> ) </symbol>
-      </term>
+      </Term>
       <symbol> < </symbol>
       <Expression>
-       <term>
+       <Term>
         <int_constant> 254 </int_constant>
-       </term>
+       </Term>
       </Expression>
      </Expression>
      <symbol> ) </symbol>
@@ -729,9 +729,9 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <keyword> false </keyword>
-         </term>
+         </Term>
         </Expression>
        </ExpressionList>
        <symbol> ) </symbol>
@@ -745,61 +745,61 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <identifier> size </identifier>
-          </term>
+          </Term>
          </Expression>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <int_constant> 1 </int_constant>
-          </term>
+          </Term>
          </Expression>
         </Expression>
        </ExpressionList>
        <symbol> ) </symbol>
        <symbol> ; </symbol>
       </DoStatement>
-      <LetStatement>
+      <Let_STATEMENT>
        <keyword> let </keyword>
        <identifier> y </identifier>
        <symbol> = </symbol>
        <Expression>
-        <term>
+        <Term>
          <identifier> y </identifier>
-        </term>
+        </Term>
         <symbol> + </symbol>
         <Expression>
-         <term>
+         <Term>
           <int_constant> 2 </int_constant>
-         </term>
+         </Term>
         </Expression>
        </Expression>
        <symbol> ; </symbol>
-      </LetStatement>
+      </Let_STATEMENT>
       <DoStatement>
        <keyword> do </keyword>
        <identifier> Screen </identifier>
@@ -808,9 +808,9 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <keyword> true </keyword>
-         </term>
+         </Term>
         </Expression>
        </ExpressionList>
        <symbol> ) </symbol>
@@ -824,56 +824,56 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <symbol> ( </symbol>
           <Expression>
-           <term>
+           <Term>
             <identifier> y </identifier>
-           </term>
+           </Term>
            <symbol> + </symbol>
            <Expression>
-            <term>
+            <Term>
              <identifier> size </identifier>
-            </term>
+            </Term>
            </Expression>
           </Expression>
           <symbol> ) </symbol>
-         </term>
+         </Term>
          <symbol> - </symbol>
          <Expression>
-          <term>
+          <Term>
            <int_constant> 1 </int_constant>
-          </term>
+          </Term>
          </Expression>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <identifier> size </identifier>
-          </term>
+          </Term>
          </Expression>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <identifier> size </identifier>
-          </term>
+          </Term>
          </Expression>
         </Expression>
        </ExpressionList>
@@ -896,8 +896,8 @@
   <keyword> void </keyword>
   <identifier> moveLeft </identifier>
   <symbol> ( </symbol>
-  <ParameterList>
-  </ParameterList>
+  <ParameterLilst>
+  </ParameterLilst>
   <symbol> ) </symbol>
   <SubroutineBody>
    <symbol> { </symbol>
@@ -906,14 +906,14 @@
      <keyword> if </keyword>
      <symbol> ( </symbol>
      <Expression>
-      <term>
+      <Term>
        <identifier> x </identifier>
-      </term>
+      </Term>
       <symbol> > </symbol>
       <Expression>
-       <term>
+       <Term>
         <int_constant> 1 </int_constant>
-       </term>
+       </Term>
       </Expression>
      </Expression>
      <symbol> ) </symbol>
@@ -927,9 +927,9 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <keyword> false </keyword>
-         </term>
+         </Term>
         </Expression>
        </ExpressionList>
        <symbol> ) </symbol>
@@ -943,79 +943,79 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <symbol> ( </symbol>
           <Expression>
-           <term>
+           <Term>
             <identifier> x </identifier>
-           </term>
+           </Term>
            <symbol> + </symbol>
            <Expression>
-            <term>
+            <Term>
              <identifier> size </identifier>
-            </term>
+            </Term>
            </Expression>
           </Expression>
           <symbol> ) </symbol>
-         </term>
+         </Term>
          <symbol> - </symbol>
          <Expression>
-          <term>
+          <Term>
            <int_constant> 1 </int_constant>
-          </term>
+          </Term>
          </Expression>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <identifier> size </identifier>
-          </term>
+          </Term>
          </Expression>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <identifier> size </identifier>
-          </term>
+          </Term>
          </Expression>
         </Expression>
        </ExpressionList>
        <symbol> ) </symbol>
        <symbol> ; </symbol>
       </DoStatement>
-      <LetStatement>
+      <Let_STATEMENT>
        <keyword> let </keyword>
        <identifier> x </identifier>
        <symbol> = </symbol>
        <Expression>
-        <term>
+        <Term>
          <identifier> x </identifier>
-        </term>
+        </Term>
         <symbol> - </symbol>
         <Expression>
-         <term>
+         <Term>
           <int_constant> 2 </int_constant>
-         </term>
+         </Term>
         </Expression>
        </Expression>
        <symbol> ; </symbol>
-      </LetStatement>
+      </Let_STATEMENT>
       <DoStatement>
        <keyword> do </keyword>
        <identifier> Screen </identifier>
@@ -1024,9 +1024,9 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <keyword> true </keyword>
-         </term>
+         </Term>
         </Expression>
        </ExpressionList>
        <symbol> ) </symbol>
@@ -1040,38 +1040,38 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <int_constant> 1 </int_constant>
-          </term>
+          </Term>
          </Expression>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <identifier> size </identifier>
-          </term>
+          </Term>
          </Expression>
         </Expression>
        </ExpressionList>
@@ -1094,8 +1094,8 @@
   <keyword> void </keyword>
   <identifier> moveRight </identifier>
   <symbol> ( </symbol>
-  <ParameterList>
-  </ParameterList>
+  <ParameterLilst>
+  </ParameterLilst>
   <symbol> ) </symbol>
   <SubroutineBody>
    <symbol> { </symbol>
@@ -1104,26 +1104,26 @@
      <keyword> if </keyword>
      <symbol> ( </symbol>
      <Expression>
-      <term>
+      <Term>
        <symbol> ( </symbol>
        <Expression>
-        <term>
+        <Term>
          <identifier> x </identifier>
-        </term>
+        </Term>
         <symbol> + </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> size </identifier>
-         </term>
+         </Term>
         </Expression>
        </Expression>
        <symbol> ) </symbol>
-      </term>
+      </Term>
       <symbol> < </symbol>
       <Expression>
-       <term>
+       <Term>
         <int_constant> 510 </int_constant>
-       </term>
+       </Term>
       </Expression>
      </Expression>
      <symbol> ) </symbol>
@@ -1137,9 +1137,9 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <keyword> false </keyword>
-         </term>
+         </Term>
         </Expression>
        </ExpressionList>
        <symbol> ) </symbol>
@@ -1153,61 +1153,61 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <int_constant> 1 </int_constant>
-          </term>
+          </Term>
          </Expression>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <identifier> size </identifier>
-          </term>
+          </Term>
          </Expression>
         </Expression>
        </ExpressionList>
        <symbol> ) </symbol>
        <symbol> ; </symbol>
       </DoStatement>
-      <LetStatement>
+      <Let_STATEMENT>
        <keyword> let </keyword>
        <identifier> x </identifier>
        <symbol> = </symbol>
        <Expression>
-        <term>
+        <Term>
          <identifier> x </identifier>
-        </term>
+        </Term>
         <symbol> + </symbol>
         <Expression>
-         <term>
+         <Term>
           <int_constant> 2 </int_constant>
-         </term>
+         </Term>
         </Expression>
        </Expression>
        <symbol> ; </symbol>
-      </LetStatement>
+      </Let_STATEMENT>
       <DoStatement>
        <keyword> do </keyword>
        <identifier> Screen </identifier>
@@ -1216,9 +1216,9 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <keyword> true </keyword>
-         </term>
+         </Term>
         </Expression>
        </ExpressionList>
        <symbol> ) </symbol>
@@ -1232,56 +1232,56 @@
        <symbol> ( </symbol>
        <ExpressionList>
         <Expression>
-         <term>
+         <Term>
           <symbol> ( </symbol>
           <Expression>
-           <term>
+           <Term>
             <identifier> x </identifier>
-           </term>
+           </Term>
            <symbol> + </symbol>
            <Expression>
-            <term>
+            <Term>
              <identifier> size </identifier>
-            </term>
+            </Term>
            </Expression>
           </Expression>
           <symbol> ) </symbol>
-         </term>
+         </Term>
          <symbol> - </symbol>
          <Expression>
-          <term>
+          <Term>
            <int_constant> 1 </int_constant>
-          </term>
+          </Term>
          </Expression>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> x </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <identifier> size </identifier>
-          </term>
+          </Term>
          </Expression>
         </Expression>
         <symbol> , </symbol>
         <Expression>
-         <term>
+         <Term>
           <identifier> y </identifier>
-         </term>
+         </Term>
          <symbol> + </symbol>
          <Expression>
-          <term>
+          <Term>
            <identifier> size </identifier>
-          </term>
+          </Term>
          </Expression>
         </Expression>
        </ExpressionList>
