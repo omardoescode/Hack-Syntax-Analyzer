@@ -3,6 +3,7 @@
 #include "compilation_engine.h"
 #include "hack_map.h"
 #include <filesystem>
+
 class HackSyntaxAnalyzer {
 public:
     HackSyntaxAnalyzer (std::filesystem::path inp);

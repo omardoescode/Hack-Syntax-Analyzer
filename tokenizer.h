@@ -13,7 +13,7 @@ public:
 
     bool has_more_tokens ();
     Token advance ();
-    Token next (int steps = 1);
+    Token next ();
     TokenType token_type ();
 
 private:

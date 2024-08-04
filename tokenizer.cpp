@@ -9,7 +9,7 @@
 
 Tokenizer::Tokenizer (std::filesystem::path inp_file, std::shared_ptr<HackMap> hack_map)
 : inp_file (inp_file), in_string{ false }, in_comment_block{ false },
-  hack_map{ hack_map }, current{ -1 } {
+  hack_map{ hack_map } {
     tokenize ();
 }
 
@@ -22,20 +22,22 @@ Token Tokenizer::advance () {
     return tokens_vec[current];
 }
 
-Token Tokenizer::next (int count) {
-    return tokens_vec[count + current];
+Token Tokenizer::next () {
+    return tokens_vec[1 + current];
 }
 void Tokenizer::tokenize () {
     in_string = false;
     std::string current_line;
     while (std::getline (inp_file, current_line)) {
-        if (inp_file.bad ())
+        if (inp_file.bad ()) {
             throw Error ("Tokenizer::tokenize: Error reading input file");
+        }
 
         trim_codeline (current_line);
 
-        if (current_line.empty ())
+        if (current_line.empty ()) {
             continue;
+        }
 
         std::istringstream codeline_stream{ current_line };
         char next;
@@ -61,7 +63,7 @@ void Tokenizer::tokenize () {
             } else if (in_string) {
                 // Inside a string literal
                 value += next;
-            } else if (isspace (next)) {
+            } else if (isspace (next) != 0) {
                 // Delimiters outside of string literals
                 if (!value.empty ()) {
                     process_word (value);
@@ -83,21 +85,23 @@ void Tokenizer::tokenize () {
 void Tokenizer::trim_codeline (std::string& line) {
     // Remove Comment
     auto comment = line.find ("//");
-    if (comment != std::string::npos)
+    if (comment != std::string::npos) {
         line.erase (comment);
+    }
 
     // Remove leading and trailing spaces
-    std::regex pattern (R"(^\s+|\s+$)");
+    const std::regex pattern (R"(^\s+|\s+$)");
     line = std::regex_replace (line, pattern, "");
 }
 
 void Tokenizer::process_word (const std::string& word) {
     std::string token;
 
-    if (word.at (0) == '"')
+    if (word.at (0) == '"') {
         process_value (word, true);
-    for (int i = 0, __end = word.length (); i < __end; i++) {
-        auto& c = word[i];
+    }
+    for (int i = 0, _end = static_cast<int> (word.length ()); i < _end; i++) {
+        const auto& c = word[i];
 
         if (in_comment_block) {
             if (word.substr (i, 2) == "*/") {
