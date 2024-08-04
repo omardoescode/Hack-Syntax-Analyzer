@@ -1,12 +1,6 @@
 #pragma once
 
-enum class TokenType {
-    KEYWORD,
-    SYMBOL,
-    INT_CONST,
-    STRING_CONSTANT,
-    IDENTIFIER
-};
+enum class TokenType { KEYWORD, SYMBOL, INT_CONST, STRING_CONST, IDENTIFIER };
 
 enum class Keyword {
     CLASS,

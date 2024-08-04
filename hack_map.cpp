@@ -70,7 +70,7 @@ std::map<TokenType, std::string> HackMap::tokens = {
     { TokenType::IDENTIFIER, "identifier" },
     { TokenType::KEYWORD, "keyword" },
     { TokenType::INT_CONST, "int_constant" },
-    { TokenType::STRING_CONSTANT, "string_constant" },
+    { TokenType::STRING_CONST, "string_constant" },
 };
 
 std::vector<char> HackMap::symbols = { '(', ')', '{', '}', '[', ']', ',', ';',

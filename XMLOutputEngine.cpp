@@ -13,8 +13,9 @@ int tab_width)
 
 void XMLOutputEngine::write_spaces () {
     int temp = spaces;
-    while (temp--)
+    while ((temp--) != 0) {
         out_file << " ";
+    }
 }
 
 void XMLOutputEngine::write_terminal (Token token) {
@@ -32,8 +33,9 @@ void XMLOutputEngine::write_non_terminal (const NonTerminalRules& tag) {
 }
 
 void XMLOutputEngine::close_non_terminal () {
-    if (tags.empty ())
+    if (tags.empty ()) {
         throw Error ("Invalid Tags matching");
+    }
 
     auto tag = tags.top ();
     tags.pop ();
@@ -49,7 +51,7 @@ std::map<NonTerminalRules, std::string> XMLOutputEngine::non_terminals = {
     { NonTerminalRules::SUBROUTINE_DEC, "SubroutineDec" },
     { NonTerminalRules::SUBROUTINE_BODY, "SubroutineBody" },
     { NonTerminalRules::VAR_DEC, "VarDec" },
-    { NonTerminalRules::STATEMENTS, "Statements" },
+    { NonTerminalRules::VAR_DEC, "Statements" },
     { NonTerminalRules::IF_STATEMENT, "IfStatement" },
     { NonTerminalRules::LET_STATEMENT, "Let_STATEMENT" },
     { NonTerminalRules::WHILE_STATEMENT, "WhileStatement" },

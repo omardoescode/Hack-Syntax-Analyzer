@@ -127,7 +127,7 @@ void Tokenizer::process_word (const std::string& word) {
 void Tokenizer::process_value (const std::string& value, bool is_string) {
 
     if (is_string)
-        tokens_vec.push_back ({ value, TokenType::STRING_CONSTANT });
+        tokens_vec.push_back ({ value, TokenType::STRING_CONST });
     else if (hack_map->contains_keyword (value))
         tokens_vec.push_back ({ value, TokenType::KEYWORD });
     else if (std::all_of (value.begin (), value.end (), ::isdigit))

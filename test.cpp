@@ -6,12 +6,13 @@
 #include <filesystem>
 #include <iostream>
 #include <memory>
-#include <regex>
+
+using std::string;
 
 bool test_hack_map ();
 bool test_tokenizer ();
 bool test_compilation_engine_and_xml_output_engine ();
-bool test (bool (*func) (), std::string);
+bool test (bool (*func) (), string&& test);
 
 int main () {
     test (test_hack_map, std::string ("Testing HackMap"));
@@ -20,13 +21,13 @@ int main () {
     "Testing the compilation engine and the xml output engine");
 }
 
-bool test (bool (*func) (), std::string test_name) {
+bool test (bool (*func) (), string&& test_name) {
     if (func ()) {
-        std::cout << "-- " << test_name << " Succeced" << std::endl;
+        std::cout << "-- " << test_name << " Succeced\n";
         return true;
     }
 
-    std::cout << "-- " << test_name << " Failed" << std::endl;
+    std::cout << "-- " << test_name << " Failed\n";
     return false;
 }
 bool test_hack_map () {
@@ -60,10 +61,10 @@ bool test_compilation_engine_and_xml_output_engine () {
     }
 
     try {
-        std::shared_ptr<HackMap> hack_map;
-        std::shared_ptr<Tokenizer> tokenizer =
+        const std::shared_ptr<HackMap> hack_map;
+        const std::shared_ptr<Tokenizer> tokenizer =
         std::make_shared<Tokenizer> (inp_file, hack_map);
-        std::shared_ptr<XMLOutputEngine> output_engine =
+        const std::shared_ptr<XMLOutputEngine> output_engine =
         std::make_shared<XMLOutputEngine> ("tests/test.xml", hack_map, 1);
         CompilationEngine engine (hack_map);
         engine.set_tokenizer (tokenizer);

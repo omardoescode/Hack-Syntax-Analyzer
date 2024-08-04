@@ -378,8 +378,8 @@ void CompilationEngine::compile_term () {
 
     switch (token.type) {
     case TokenType::INT_CONST: advance_and_write (TokenType::INT_CONST); break;
-    case TokenType::STRING_CONSTANT:
-        advance_and_write (TokenType::STRING_CONSTANT);
+    case TokenType::STRING_CONST:
+        advance_and_write (TokenType::STRING_CONST);
         break;
     case TokenType::KEYWORD:
         if (!hack_map->contains_keyword_constant (token.value))
