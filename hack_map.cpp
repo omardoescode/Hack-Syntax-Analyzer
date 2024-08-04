@@ -1,5 +1,7 @@
 #include "hack_map.h"
 #include "error.h"
+#include <algorithm>
+#include <utility>
 
 
 std::string HackMap::get_keyword (Keyword value) {
@@ -11,10 +13,8 @@ std::string HackMap::get_token (TokenType value) {
 }
 
 template <typename T> bool HackMap::contains (T target, std::vector<T> values) {
-    for (auto& val : values)
-        if (val == target)
-            return true;
-    return false;
+    return std::any_of (values.begin (), values.end (),
+    [&] (const auto& value) { return value == target; });
 }
 Keyword HackMap::get_keyword (const std::string& target) {
     for (auto& [key, value] : keywords)
@@ -24,10 +24,8 @@ Keyword HackMap::get_keyword (const std::string& target) {
 }
 
 bool HackMap::contains_keyword (std::string target) {
-    for (auto& [key, value] : keywords)
-        if (value == target)
-            return true;
-    return false;
+    return std::any_of (keywords.begin (), keywords.end (),
+    [&] (const auto& pair) { return pair.second == target; });
 }
 
 bool HackMap::contains_symbol (char test) {
@@ -39,7 +37,7 @@ bool HackMap::contains_operator (char test) {
 }
 
 bool HackMap::contains_keyword_constant (std::string target) {
-    return contains (target, keyword_constants);
+    return contains (std::move (target), keyword_constants);
 }
 std::map<Keyword, std::string> HackMap::keywords = {
     { Keyword::CLASS, "class" },
