@@ -35,7 +35,7 @@
   <SubroutineBody>
    <symbol> { </symbol>
    <Statements>
-    <Let_STATEMENT>
+    <LetStatement>
      <keyword> let </keyword>
      <identifier> x </identifier>
      <symbol> = </symbol>
@@ -45,8 +45,8 @@
       </Term>
      </Expression>
      <symbol> ; </symbol>
-    </Let_STATEMENT>
-    <Let_STATEMENT>
+    </LetStatement>
+    <LetStatement>
      <keyword> let </keyword>
      <identifier> y </identifier>
      <symbol> = </symbol>
@@ -56,8 +56,8 @@
       </Term>
      </Expression>
      <symbol> ; </symbol>
-    </Let_STATEMENT>
-    <Let_STATEMENT>
+    </LetStatement>
+    <LetStatement>
      <keyword> let </keyword>
      <identifier> size </identifier>
      <symbol> = </symbol>
@@ -67,7 +67,7 @@
       </Term>
      </Expression>
      <symbol> ; </symbol>
-    </Let_STATEMENT>
+    </LetStatement>
     <DoStatement>
      <keyword> do </keyword>
      <identifier> draw </identifier>
@@ -372,7 +372,7 @@
        <symbol> ) </symbol>
        <symbol> ; </symbol>
       </DoStatement>
-      <Let_STATEMENT>
+      <LetStatement>
        <keyword> let </keyword>
        <identifier> size </identifier>
        <symbol> = </symbol>
@@ -388,7 +388,7 @@
         </Expression>
        </Expression>
        <symbol> ; </symbol>
-      </Let_STATEMENT>
+      </LetStatement>
       <DoStatement>
        <keyword> do </keyword>
        <identifier> draw </identifier>
@@ -446,7 +446,7 @@
        <symbol> ) </symbol>
        <symbol> ; </symbol>
       </DoStatement>
-      <Let_STATEMENT>
+      <LetStatement>
        <keyword> let </keyword>
        <identifier> size </identifier>
        <symbol> = </symbol>
@@ -462,7 +462,7 @@
         </Expression>
        </Expression>
        <symbol> ; </symbol>
-      </Let_STATEMENT>
+      </LetStatement>
       <DoStatement>
        <keyword> do </keyword>
        <identifier> draw </identifier>
@@ -591,7 +591,7 @@
        <symbol> ) </symbol>
        <symbol> ; </symbol>
       </DoStatement>
-      <Let_STATEMENT>
+      <LetStatement>
        <keyword> let </keyword>
        <identifier> y </identifier>
        <symbol> = </symbol>
@@ -607,7 +607,7 @@
         </Expression>
        </Expression>
        <symbol> ; </symbol>
-      </Let_STATEMENT>
+      </LetStatement>
       <DoStatement>
        <keyword> do </keyword>
        <identifier> Screen </identifier>
@@ -783,7 +783,7 @@
        <symbol> ) </symbol>
        <symbol> ; </symbol>
       </DoStatement>
-      <Let_STATEMENT>
+      <LetStatement>
        <keyword> let </keyword>
        <identifier> y </identifier>
        <symbol> = </symbol>
@@ -799,7 +799,7 @@
         </Expression>
        </Expression>
        <symbol> ; </symbol>
-      </Let_STATEMENT>
+      </LetStatement>
       <DoStatement>
        <keyword> do </keyword>
        <identifier> Screen </identifier>
@@ -999,7 +999,7 @@
        <symbol> ) </symbol>
        <symbol> ; </symbol>
       </DoStatement>
-      <Let_STATEMENT>
+      <LetStatement>
        <keyword> let </keyword>
        <identifier> x </identifier>
        <symbol> = </symbol>
@@ -1015,7 +1015,7 @@
         </Expression>
        </Expression>
        <symbol> ; </symbol>
-      </Let_STATEMENT>
+      </LetStatement>
       <DoStatement>
        <keyword> do </keyword>
        <identifier> Screen </identifier>
@@ -1191,7 +1191,7 @@
        <symbol> ) </symbol>
        <symbol> ; </symbol>
       </DoStatement>
-      <Let_STATEMENT>
+      <LetStatement>
        <keyword> let </keyword>
        <identifier> x </identifier>
        <symbol> = </symbol>
@@ -1207,7 +1207,7 @@
         </Expression>
        </Expression>
        <symbol> ; </symbol>
-      </Let_STATEMENT>
+      </LetStatement>
       <DoStatement>
        <keyword> do </keyword>
        <identifier> Screen </identifier>
