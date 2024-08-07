@@ -14,7 +14,7 @@ HackSyntaxAnalyzer::HackSyntaxAnalyzer (std::filesystem::path inp)
 
 void HackSyntaxAnalyzer::analyze () {
     if (!std::filesystem::is_directory (inp)) {
-        if (inp.extension () == ".jack")
+        if (inp.extension () != ".jack")
             throw Error ("Invalid file extension");
         analyze_file (inp);
         return;
