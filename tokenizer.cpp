@@ -48,10 +48,9 @@ void Tokenizer::tokenize () {
                     // End of string literal
                     value += next;
                     process_word (value);
-                    value.clear ();
+                    value     = "";
                     in_string = false;
                 } else {
-
                     // Start of string literal
                     if (!value.empty ()) {
                         process_word (value);
@@ -99,7 +98,9 @@ void Tokenizer::process_word (const std::string& word) {
 
     if (word.at (0) == '"') {
         process_value (word, true);
+        return;
     }
+
     for (int i = 0, _end = static_cast<int> (word.length ()); i < _end; i++) {
         const auto& c = word[i];
 
